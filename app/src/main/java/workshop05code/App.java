@@ -57,17 +57,18 @@ public class App {
             int i = 1;
             while ((line = br.readLine()) != null) {
                 if (line.length() != 4 || !line.matches("^[a-z]+$")){
+                    logger.log(Level.SEVERE, "Invalid word read from file: " + line);
                     System.out.println(line + " not added as it does not have 4 lowercased letters.");
                     continue;
                 }
-                System.out.println(line);
+                logger.log(Level.FINE, "Loaded word: " + line);
                 wordleDatabaseConnection.addValidWord(i, line);
                 i++;
             }
 
         } catch (IOException e) {
             System.out.println("Not able to load . Sorry!");
-            System.out.println(e.getMessage());
+            logger.log(Level.WARNING, "Not able to load words.", e);
             return;
         }
 
@@ -81,6 +82,7 @@ public class App {
                     return;
                 }
                 if (guess.length() != 4 || !guess.matches("^[a-z]+$")){
+                    logger.log(Level.INFO, "Invalid guess: " + guess);
                     System.out.println("Please enter 4 lowercase letters.");
                     continue;
                 }
@@ -96,7 +98,7 @@ public class App {
                 
             }
         } catch (NoSuchElementException | IllegalStateException e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING, "Not able to load words.", e);
         }
 
     }
