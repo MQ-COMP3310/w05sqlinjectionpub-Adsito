@@ -60,7 +60,7 @@ public class App {
                     logger.log(Level.SEVERE, "Invalid word read from file: " + line);
                     continue;
                 }
-                logger.log(Level.FINE, "Loaded word: " + line);
+                logger.log(Level.INFO, "Loaded word: " + line);
                 wordleDatabaseConnection.addValidWord(i, line);
                 i++;
             }
