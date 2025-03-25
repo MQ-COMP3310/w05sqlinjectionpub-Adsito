@@ -56,6 +56,10 @@ public class App {
             String line;
             int i = 1;
             while ((line = br.readLine()) != null) {
+                if (line.length() != 4 || !line.matches("^[a-z]+$")){
+                    System.out.println(line + " not added as it does not have 4 lowercased letters.");
+                    continue;
+                }
                 System.out.println(line);
                 wordleDatabaseConnection.addValidWord(i, line);
                 i++;
