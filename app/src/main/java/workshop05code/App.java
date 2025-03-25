@@ -58,7 +58,6 @@ public class App {
             while ((line = br.readLine()) != null) {
                 if (line.length() != 4 || !line.matches("^[a-z]+$")){
                     logger.log(Level.SEVERE, "Invalid word read from file: " + line);
-                    System.out.println(line + " not added as it does not have 4 lowercased letters.");
                     continue;
                 }
                 logger.log(Level.FINE, "Loaded word: " + line);
