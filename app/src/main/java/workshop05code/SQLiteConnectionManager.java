@@ -66,7 +66,7 @@ public class SQLiteConnectionManager {
                 DatabaseMetaData meta = conn.getMetaData();
             }
         } catch (SQLException e) {
-            logger.log(Level.WARNING, "Database not created.", e);
+            logger.log(Level.SEVERE, "Database not created.", e);
         }
     }
 
@@ -85,7 +85,7 @@ public class SQLiteConnectionManager {
                     return true;
                 }
             } catch (SQLException e) {
-                logger.log(Level.WARNING, "Connection not defined.", e);
+                logger.log(Level.SEVERE, "Connection not defined.", e);
                 return false;
             }
         }
@@ -110,7 +110,7 @@ public class SQLiteConnectionManager {
                 return true;
 
             } catch (SQLException e) {
-                logger.log(Level.WARNING, "Wordle Table not created.", e);
+                logger.log(Level.SEVERE, "Wordle Table not created.", e);
                 return false;
             }
         }
